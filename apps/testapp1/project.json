@@ -5,7 +5,9 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/apps/testapp1",
         "index": "apps/testapp1/src/index.html",
@@ -13,9 +15,17 @@
         "polyfills": "apps/testapp1/src/polyfills.ts",
         "tsConfig": "apps/testapp1/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/testapp1/src/favicon.ico", "apps/testapp1/src/assets"],
-        "styles": ["apps/testapp1/src/styles.scss"],
-        "scripts": []
+        "assets": [
+          "apps/testapp1/src/favicon.ico",
+          "apps/testapp1/src/assets",
+          "apps/testapp1/src/manifest.webmanifest"
+        ],
+        "styles": [
+          "apps/testapp1/src/styles.scss"
+        ],
+        "scripts": [],
+        "serviceWorker": true,
+        "ngswConfigPath": "apps/testapp1/ngsw-config.json"
       },
       "configurations": {
         "production": {
@@ -71,12 +81,17 @@
     "lint": {
       "executor": "@nrwl/linter:eslint",
       "options": {
-        "lintFilePatterns": ["apps/testapp1/**/*.ts", "apps/testapp1/**/*.html"]
+        "lintFilePatterns": [
+          "apps/testapp1/**/*.ts",
+          "apps/testapp1/**/*.html"
+        ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["coverage/apps/testapp1"],
+      "outputs": [
+        "coverage/apps/testapp1"
+      ],
       "options": {
         "jestConfig": "apps/testapp1/jest.config.ts",
         "passWithNoTests": true
